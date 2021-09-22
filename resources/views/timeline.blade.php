@@ -37,14 +37,16 @@
                 </div>
             </div>
 
-            <div class="col-span-5">
-                <x-card>
-                    <h3 class="font-semibold mb-5">Recently Follow</h3>
-                    <div class="space-y-5">
-                       <x-following :users="Auth::user()->follows()->limit(5)->get()"></x-following>
-                    </div>
-                </x-card> {{-- end of rounded --}}
-            </div>
+            @if(Auth::user()->follows()->count())
+                <div class="col-span-5">
+                    <x-card>
+                        <h3 class="font-semibold mb-5">Recently Follow</h3>
+                        <div class="space-y-5">
+                        <x-following :users="Auth::user()->follows()->limit(5)->get()"></x-following>
+                        </div>
+                    </x-card> {{-- end of rounded --}}
+                </div>
+            @endif
         </div>
 
     </x-container>

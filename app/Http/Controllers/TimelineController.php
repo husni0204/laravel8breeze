@@ -20,7 +20,6 @@ class TimelineController extends Controller
         $statuses = Auth::user()->timeline();
         // $statuses = Status::get();
         // dd($statuses);
-        //return $statuses;
         return view('timeline', compact('statuses'));
     }
 }
